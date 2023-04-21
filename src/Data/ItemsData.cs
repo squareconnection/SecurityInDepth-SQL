@@ -14,9 +14,9 @@ namespace SecurityInDepth.Data
         {
             try{
             Database.Migrate();
-            if (Items.Count() == 0)
+            if (Item.Count() == 0)
             {
-                Items.Add(new SecurityInDepth.Models.Item { Name = "Sample Item", Description = "Sample Item" });
+                Item.Add(new SecurityInDepth.Models.Item { Name = "Sample Item", Description = "Sample Item" });
                 SaveChanges();
             }
             }
@@ -25,6 +25,6 @@ namespace SecurityInDepth.Data
             }
         }
 
-        public DbSet<SecurityInDepth.Models.Item> Items { get; set; }
+        public DbSet<SecurityInDepth.Models.Item> Item { get; set; }
     }
 }

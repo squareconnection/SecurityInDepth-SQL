@@ -35,7 +35,7 @@ public class HomeController : Controller
             try
             {
 
-            var results = _context.Items.ToList();
+            var results = _context.Item.ToList();
             return View("Index", results);
             }
             catch (Exception ex)

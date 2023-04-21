@@ -10,17 +10,14 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
+//using (var scope = app.Services.CreateScope())
+//{
+//    var services = scope.ServiceProvider;
 
-    var context = services.GetRequiredService<ItemsContext>();    
-    context.Database.Migrate();
-    if(context.Item.Count()==0){
-        context.Item.Add(new SecurityInDepth.Models.Item{ Name="Sample Item", Description="Sample Item" });
-        context.SaveChanges();
-    }
-}
+//    var context = services.GetRequiredService<ItemsContext>();    
+//    context.Database.Migrate();
+
+//}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

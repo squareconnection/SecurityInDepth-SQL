@@ -14,6 +14,7 @@ public class HomeController : Controller
     {
         _logger = logger;
         _context=context;
+
     }
 
     public IActionResult Index()
@@ -34,8 +35,22 @@ public class HomeController : Controller
             try
             {
 
-            var results = _context.Item.ToList();
+            var results = _context.Items.ToList();
             return View("Index", results);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Message = ex.Message;
+            }
+            return View("Index");
+        }
+
+        public async Task<IActionResult> CreateDatabase()
+        {
+            try
+            {
+                _context.CreateDatabase();
+               ViewBag.Message = "Database created successfully";
             }
             catch (Exception ex)
             {
